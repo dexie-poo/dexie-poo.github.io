@@ -1,38 +1,271 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Dexter Hoi Long Leung</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dexter Hoi Long Leung, PhD</title>
+<style>
+  :root {
+    --bg: #fbfbf9;
+    --surface: #ffffff;
+    --surface-muted: #f3f1ec;
+    --text: #1c1e21;
+    --muted: #5f6368;
+    --border: #e2ded4;
+    --accent: #1a5c4d;
+    --accent-soft: #e7f0ec;
+  }
+  html[data-theme="dark"] {
+    --bg: #131518;
+    --surface: #1d2024;
+    --surface-muted: #262a2f;
+    --text: #e8eaed;
+    --muted: #9aa0a6;
+    --border: #3a3f45;
+    --accent: #7fc8b2;
+    --accent-soft: #22332d;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+  header.hero { padding: 72px 0 8px; }
+  .hero h1 { font-size: 2.4rem; letter-spacing: -0.02em; font-weight: 700; }
+  .hero .tagline { color: var(--accent); font-weight: 600; margin-top: 6px; font-size: 1.05rem; }
+  .hero .meta { color: var(--muted); margin-top: 10px; font-size: 0.95rem; }
+  .hero .meta a { color: var(--accent); text-decoration: none; }
+  nav.tabs {
+    display: flex; gap: 4px; flex-wrap: wrap;
+    border-bottom: 1px solid var(--border);
+    margin: 32px 0 36px; position: sticky; top: 0;
+    background: var(--bg); padding-top: 12px; z-index: 10;
+  }
+  nav.tabs button {
+    background: none; border: none; cursor: pointer;
+    font-size: 0.95rem; font-weight: 600; color: var(--muted);
+    padding: 10px 16px; border-bottom: 2px solid transparent; margin-bottom: -1px;
+    font-family: inherit;
+  }
+  nav.tabs button:hover { color: var(--text); }
+  nav.tabs button.active { color: var(--accent); border-bottom-color: var(--accent); }
+  .tab { display: none; padding-bottom: 80px; animation: fade 0.25s ease; }
+  .tab.active { display: block; }
+  @keyframes fade { from { opacity: 0; transform: translateY(4px);} to { opacity: 1; transform: none;} }
+  h2 { font-size: 1.35rem; margin: 0 0 18px; letter-spacing: -0.01em; }
+  p { margin-bottom: 16px; }
+  .lead { font-size: 1.08rem; }
+  .card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 10px; padding: 22px 24px; margin-bottom: 16px;
+  }
+  .card .role { font-weight: 700; font-size: 1.02rem; }
+  .card .org { color: var(--accent); font-weight: 600; }
+  .card .dates { color: var(--muted); font-size: 0.88rem; margin: 2px 0 10px; }
+  .card ul { margin: 0 0 0 18px; }
+  .card li { margin-bottom: 6px; }
+  .edu { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .edu .degree { font-weight: 700; }
+  .edu .school { color: var(--muted); }
+  .edu .years { color: var(--muted); font-size: 0.9rem; white-space: nowrap; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+  .skill-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 10px; padding: 18px 20px;
+  }
+  .skill-card h3 { font-size: 0.95rem; color: var(--accent); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.04em; }
+  .skill-card p { font-size: 0.93rem; margin: 0; color: var(--text); }
+  .pub { margin-bottom: 22px; }
+  .pub .title { font-weight: 600; }
+  .pub .venue { color: var(--muted); font-size: 0.93rem; }
+  .pub .doi a { color: var(--accent); font-size: 0.9rem; text-decoration: none; }
+  .note {
+    background: var(--accent-soft); border-radius: 8px;
+    padding: 14px 18px; font-size: 0.93rem; color: var(--text); margin-top: 8px;
+  }
+  .contact-list { list-style: none; }
+  .contact-list li { margin-bottom: 10px; }
+  .contact-list a { color: var(--accent); text-decoration: none; }
+  footer { border-top: 1px solid var(--border); padding: 24px 0 40px; color: var(--muted); font-size: 0.85rem; }
+  @media (max-width: 600px) { .hero h1 { font-size: 1.9rem; } }
+</style>
 </head>
-
 <body>
+<div class="wrap">
 
-<h1>Dexter Hoi Long Leung, PhD</h1>
+  <header class="hero">
+    <h1>Dexter Hoi Long Leung, PhD</h1>
+    <div class="tagline">Computational Biology | Data Analysis | Translational Science</div>
+    <div class="meta">New York City &middot; <a href="mailto:dexter.leung@icloud.com">dexter.leung@icloud.com</a> &middot; <a href="https://github.com/dexie-poo">github.com/dexie-poo</a></div>
+  </header>
 
-<p>
-Postdoctoral Research Fellow in prostate cancer biology.
-</p>
+  <nav class="tabs" id="tabs">
+    <button class="active" data-tab="about">About</button>
+    <button data-tab="experience">Experience</button>
+    <button data-tab="expertise">Expertise</button>
+    <button data-tab="publications">Publications</button>
+    <button data-tab="contact">Contact</button>
+  </nav>
 
-<h2>About Me</h2>
+  <section class="tab active" id="tab-about">
+    <h2>About</h2>
+    <p class="lead">I turn complex, high-dimensional data into decisions. As a PhD scientist, I have spent years analyzing large-scale biological datasets &mdash; single-cell and spatial transcriptomics measuring thousands of genes across diverse cell populations &mdash; to answer hard questions about how cancers resist therapy.</p>
+    <p>My toolkit is fundamentally analytical: statistical analysis, clustering and dimensionality reduction, differential testing, pathway enrichment, and trajectory inference, implemented in R and Python on Linux HPC clusters with Git-based version control. I design analyses end to end &mdash; from framing the question, through data processing and quality control, to communicating results to collaborators from other disciplines.</p>
+    <p>As a postdoctoral fellow at NYU Grossman School of Medicine, I own projects from experimental design through analysis and interpretation, work across disciplines, and mentor junior scientists. I am now bringing this analytical background to industry &mdash; data analytics, data science, and quantitative roles where rigorous analysis of complex data drives real decisions.</p>
+  </section>
 
-<p>
-I study prostate cancer progression, androgen receptor signaling,
-lineage plasticity, HGF/MET-WNT signaling, and neuroendocrine prostate cancer.
-</p>
+  <section class="tab" id="tab-experience">
+    <h2>Experience</h2>
 
-<h2>Research Interests</h2>
+    <div class="card">
+      <div class="role">Postdoctoral Research Fellow</div>
+      <div class="org">NYU Grossman School of Medicine</div>
+      <div class="dates">Dec 2025 &ndash; Present</div>
+      <ul>
+        <li>Design end-to-end computational analyses of single-cell and spatial transcriptomics data &mdash; clustering, differential expression, and trajectory inference in R &mdash; to identify therapy-resistance programs in prostate cancer.</li>
+        <li>Investigate the collaborative roles of androgen receptor and p53 signaling in DNA damage repair mechanisms relevant to disease progression.</li>
+        <li>Execute in vivo and tissue workflows: mouse colony maintenance, surgical procedures, tissue collection, PCR, tissue sectioning, IHC, and co-IF analysis.</li>
+      </ul>
+    </div>
 
-<ul>
-<li>Prostate cancer biology</li>
-<li>Single-cell transcriptomics</li>
-<li>Spatial transcriptomics</li>
-<li>Cancer signaling pathways</li>
-<li>Lineage plasticity</li>
-</ul>
+    <div class="card">
+      <div class="role">Postdoctoral Research Fellow</div>
+      <div class="org">Albert Einstein College of Medicine</div>
+      <div class="dates">Oct 2024 &ndash; Dec 2025</div>
+      <ul>
+        <li>Built analysis workflows integrating GEMM-derived single-cell and spatial data to map disease progression and resistance-associated cell states in advanced prostate cancer.</li>
+        <li>Investigated oncogenic androgen receptor signaling in the acquisition of metastatic and castration-resistant phenotypes.</li>
+        <li>Contributed experimental and analytical findings within an interdisciplinary cancer-research environment.</li>
+      </ul>
+    </div>
 
-<h2>Contact</h2>
+    <div class="card">
+      <div class="role">Research Assistant</div>
+      <div class="org">University of Nottingham</div>
+      <div class="dates">Oct 2018 &ndash; Mar 2020</div>
+      <ul>
+        <li>Evaluated drug effects in breast cancer cell lines and investigated methylation-pattern changes following phosphate starvation.</li>
+        <li>Mentored six final-year students; delivered laboratory demonstrations and tutorials and evaluated undergraduate research presentations.</li>
+      </ul>
+    </div>
 
-<p>Email: dexter.leung@icloud.com</p>
+    <div class="card">
+      <div class="role">Research Assistant (International Exchange)</div>
+      <div class="org">National Taipei University of Technology</div>
+      <div class="dates">Nov 2018 &ndash; Apr 2019</div>
+      <ul>
+        <li>Trained in thermogravimetric analysis (TGA), field-emission scanning electron microscopy (FE-SEM), and Raman spectroscopy at a precision research and analysis center.</li>
+      </ul>
+    </div>
 
+    <div class="card">
+      <div class="role">Research Assistant</div>
+      <div class="org">University of Nottingham</div>
+      <div class="dates">Oct 2017 &ndash; May 2018</div>
+      <ul>
+        <li>Multidisciplinary project using MS2 bacteriophages to study antimicrobial-resistance genes in <em>Salmonella</em> species through phage therapy.</li>
+      </ul>
+    </div>
+
+    <h2 style="margin-top:36px">Education</h2>
+    <div class="card">
+      <div class="edu"><div><div class="degree">PhD, Biochemistry and Molecular Biology</div><div class="school">Monash University</div></div><div class="years">2020 &ndash; 2024</div></div>
+    </div>
+    <div class="card">
+      <div class="edu"><div><div class="degree">MPhil, Chemical Engineering</div><div class="school">University of Nottingham</div></div><div class="years">2018 &ndash; 2020</div></div>
+    </div>
+    <div class="card">
+      <div class="edu"><div><div class="degree">BSc (Hons), Biotechnology</div><div class="school">University of Nottingham</div></div><div class="years">2015 &ndash; 2018</div></div>
+    </div>
+  </section>
+
+  <section class="tab" id="tab-expertise">
+    <h2>Expertise</h2>
+    <div class="grid">
+      <div class="skill-card"><h3>Data &amp; Analysis</h3><p>High-dimensional data analysis: clustering, dimensionality reduction, differential testing, trajectory inference. Statistical analysis, R and Python, Linux/HPC computing, Git/GitHub, reproducible analysis workflows</p></div>
+      <div class="skill-card"><h3>Computational Biology</h3><p>Single-cell RNA sequencing, spatial transcriptomics, functional genomics, pathway enrichment analysis, microarray analysis</p></div>
+      <div class="skill-card"><h3>Experimental Foundation</h3><p>Genetically engineered mouse models, mouse colony management, tissue collection, PCR, immunohistochemistry, co-immunofluorescence &mdash; the domain depth behind the data</p></div>
+      <div class="skill-card"><h3>Leadership &amp; Communication</h3><p>End-to-end project ownership, interdisciplinary collaboration, scientific writing, peer review, conference presentations, mentoring and training</p></div>
+      <div class="skill-card"><h3>Languages</h3><p>English, Mandarin Chinese, Cantonese, Bahasa Malaysia (native proficiency)</p></div>
+    </div>
+  </section>
+
+  <section class="tab" id="tab-publications">
+    <h2>Publications</h2>
+
+    <div class="pub">
+      <div class="title">ADT and activation of HGF and WNT axes in double-null prostate cancer</div>
+      <div class="venue"><strong>Leung, D.H.L.</strong>, Adzavon, Y.M., Chu, G., et al. <em>Nature Reviews Urology</em> (2026).</div>
+      <div class="doi"><a href="https://doi.org/10.1038/s41585-026-01129-8">doi:10.1038/s41585-026-01129-8</a></div>
+    </div>
+
+    <div class="pub">
+      <div class="title">Visualizing androgen signaling and assessing its interaction with canonical Wnt signaling pathways in prostate development, morphogenesis, and regeneration</div>
+      <div class="venue">Adzavon, Y.M., Lee, D.H., Hiroto, A., et al., including <strong>Leung, D.H.L.</strong> <em>PLoS Genetics</em> 21(6) (2025): e1011756.</div>
+      <div class="doi"><a href="https://doi.org/10.1371/journal.pgen.1011756">doi:10.1371/journal.pgen.1011756</a></div>
+    </div>
+
+    <div class="pub">
+      <div class="title">Regulation of EMT Markers, Extracellular Matrix, and Associated Signalling Pathways by Long Non-Coding RNAs in Glioblastoma Mesenchymal Transition: A Scoping Review</div>
+      <div class="venue"><strong>Leung, D.H.L.</strong>, Phon, B.W.S., Sivalingam, M., et al. <em>Biology</em> 12 (2023): 818.</div>
+      <div class="doi"><a href="https://doi.org/10.3390/biology12060818">doi:10.3390/biology12060818</a></div>
+    </div>
+
+    <div class="note">Full publication list on <a href="https://scholar.google.com/citations?user=ztkiJJUAAAAJ&hl=en&authuser=4" style="color: var(--accent);">Google Scholar</a>.</div>
+
+    <h2 style="margin-top:36px">Awards &amp; Service</h2>
+    <div class="card"><ul>
+      <li>Dean's Commendation for Doctoral Thesis Excellence, Monash University, 2025</li>
+      <li>Graduate Research Excellence Scholarship, Monash University Malaysia</li>
+      <li>MPhil/PhD Scholarship, University of Nottingham Malaysia</li>
+      <li>Peer reviewer for journals including <em>Molecular Neurobiology</em>; abstract reviewer for academic conferences</li>
+      <li>Graduate Technologist, Malaysia Board of Technologists (lifetime member)</li>
+    </ul></div>
+  </section>
+
+  <section class="tab" id="tab-contact">
+    <h2>Contact</h2>
+    <ul class="contact-list">
+      <li>Email: <a href="mailto:dexter.leung@icloud.com">dexter.leung@icloud.com</a></li>
+      <li>GitHub: <a href="https://github.com/dexie-poo">github.com/dexie-poo</a></li>
+      <li>Location: New York City</li>
+    </ul>
+  </section>
+
+  <footer>&copy; 2026 Dexter Hoi Long Leung</footer>
+</div>
+
+<script>
+  (function () {
+    var tabs = document.getElementById('tabs');
+    function activate(name) {
+      var btns = tabs.querySelectorAll('button');
+      for (var i = 0; i < btns.length; i++) {
+        btns[i].classList.toggle('active', btns[i].dataset.tab === name);
+      }
+      var panes = document.querySelectorAll('.tab');
+      for (var j = 0; j < panes.length; j++) {
+        panes[j].classList.toggle('active', panes[j].id === 'tab-' + name);
+      }
+      window.scrollTo(0, 0);
+    }
+    tabs.addEventListener('click', function (e) {
+      var b = e.target.closest('button');
+      if (b) activate(b.dataset.tab);
+    });
+    if (window.location.hash) {
+      var h = window.location.hash.replace('#', '');
+      if (document.getElementById('tab-' + h)) activate(h);
+    }
+    tabs.addEventListener('click', function (e) {
+      var b = e.target.closest('button');
+      if (b) history.replaceState(null, '', '#' + b.dataset.tab);
+    });
+  })();
+</script>
 </body>
 </html>
